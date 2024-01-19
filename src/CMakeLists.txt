@@ -1,13 +1,23 @@
-set(current_target blank_slate)
+set(current_target wmcv-log)
 
-add_executable(
-    ${current_target} 
-    main.cpp
+add_library(
+    wmcv-log ""
 )
 
-CPMAddPackage("gh:fmtlib/fmt#10.0.0")
-target_link_libraries(${current_target} PRIVATE fmt::fmt)
-set_property(TARGET fmt PROPERTY FOLDER third_party/fmt)
+target_sources( 
+    wmcv-log
+    PRIVATE
+        pch.h
+        wmcv_log_system.cpp
+        wmcv_sink_outputdbgstring.cpp
+)
+
+if( MSVC )
+    target_sources(wmcv-log PRIVATE pch.cpp)
+endif()
+
+target_precompile_headers(wmcv-log PRIVATE pch.h pch.cpp)
+source_group(TREE ${CMAKE_CURRENT_SOURCE_DIR} FILES ${SOURCES})
 
 if( ENABLE_ALL_REASONABLE_WARNINGS )
     MESSAGE("-- Additional Warnings Enabled")
