@@ -17,7 +17,7 @@ jobs:
       matrix:
         os: [windows-latest, ubuntu-latest, macos-latest]
         build_configuration: [Debug, Release]
-        compiler: [llvm, gcc-13]
+        compiler: [llvm, gcc-12]
 
         exclude:
           - os: windows-latest
