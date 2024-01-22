@@ -8,7 +8,7 @@ namespace wmcv
 #ifdef _WIN32
 		OutputDebugStringA(message.data());
 #else
-		printf(message.data());
+		printf("%s", message.data());
 #endif
 	}
 }
