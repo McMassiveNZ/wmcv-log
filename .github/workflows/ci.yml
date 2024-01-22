@@ -32,7 +32,7 @@ jobs:
             build_configuration: Release
 
           - os: 'windows-latest'
-            compiler: gcc
+            compiler: gcc-13
             build_configuration: Debug
 
           - os: 'windows-latest'
