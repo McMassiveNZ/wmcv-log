@@ -9,7 +9,7 @@ struct LogSystem
 {
 	virtual ~LogSystem() = default;
 	virtual void PushSink(LogSink&& sink) = 0;
-	virtual void LogMessage(const char* text) = 0;
+	virtual void LogMessage(const std::string_view text) = 0;
 
 	LogSystem& operator=(const LogSystem&) = delete;
 	LogSystem(const LogSystem&) = delete;

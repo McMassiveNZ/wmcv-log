@@ -3,9 +3,11 @@
 #include <memory>
 #include <string>
 #include <string_view>
-#include <format>
 #include <vector>
 #include <cassert>
+#include <cstdarg>
+#include <array>
+#include <format>
 
 #ifdef _WIN32
 #ifndef WIN32_LEAN_AND_MEAN

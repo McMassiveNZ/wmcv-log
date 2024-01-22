@@ -13,14 +13,14 @@ LogSystem* s_system = nullptr;
 class DefaultLogSystem final : public LogSystem
 {
 public:
-	void LogMessage(const char* text) override;
+	void LogMessage(const std::string_view text) override;
 	void PushSink(LogSink&& sink) override;
 
 	std::vector<LogSink> m_sinks;
 };
 
 
-void DefaultLogSystem::LogMessage(const char* text)
+void DefaultLogSystem::LogMessage(const std::string_view text)
 {
 	for (auto& sink : m_sinks)
 	{

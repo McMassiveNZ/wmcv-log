@@ -5,7 +5,7 @@
 struct IAbstractSink
 {
 	virtual ~IAbstractSink() = default;
-	virtual void onLog(const char* message) noexcept = 0;
+	virtual void onLog(const std::string_view message) noexcept = 0;
 };
 
 struct TestSink : public IAbstractSink
@@ -16,7 +16,7 @@ struct TestSink : public IAbstractSink
 	{
 	}
 	
-	void onLog(const char* message) noexcept override
+	void onLog(const std::string_view message) noexcept override
 	{
 		result = message;
 		++counter;
@@ -27,7 +27,7 @@ struct TestSink : public IAbstractSink
 };
 
 
-auto Log(IAbstractSink& sink, const char* message) noexcept -> void
+auto Log(IAbstractSink& sink, const std::string_view message) noexcept -> void
 {
 	sink.onLog(message);
 }
