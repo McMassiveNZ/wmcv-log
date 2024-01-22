@@ -3,12 +3,12 @@
 
 namespace wmcv
 {
-	auto Log(LogSinkOutputDebugString&, const char* message) noexcept -> void
+	auto Log(LogSinkOutputDebugString&, const std::string_view message) noexcept -> void
 	{
 #ifdef _WIN32
-		OutputDebugStringA(message);
+		OutputDebugStringA(message.data());
 #else
-		printf(message);
+		printf(message.data());
 #endif
 	}
 }

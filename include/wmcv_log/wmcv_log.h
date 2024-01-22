@@ -11,7 +11,7 @@ namespace wmcv
     {
 		const auto fmt_args = std::make_format_args(std::forward<Args>(args)...);
 		std::string result = std::vformat(fmt, fmt_args);
-		GetLogSystem().LogMessage(result.c_str());
+		GetLogSystem().LogMessage(result);
     }
 }
 

@@ -7,7 +7,7 @@ namespace wmcv
 	{
 	};
 
-	auto Log(LogSinkOutputDebugString& sink, const char* message) noexcept -> void;
-} // namespace wmcv
+	auto Log(LogSinkOutputDebugString& sink, const std::string_view message) noexcept -> void;
+	} // namespace wmcv
 
 #endif
