@@ -18,6 +18,7 @@ jobs:
         os: [windows-latest, ubuntu-latest, macos-latest]
         build_configuration: [Debug, Release]
         compiler: [llvm, gcc]
+        gcc: 13
 
         exclude:
           - os: windows-latest
@@ -32,7 +33,7 @@ jobs:
             build_configuration: Release
 
           - os: 'windows-latest'
-            compiler: gcc-13
+            compiler: gcc
             build_configuration: Debug
 
           - os: 'windows-latest'
