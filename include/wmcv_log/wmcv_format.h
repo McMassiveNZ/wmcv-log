@@ -108,7 +108,7 @@ struct Formatter<int8_t>
 	static void format(IFormatStream& f, int8_t val)
 	{
 		std::array<char, 5> buffer = {};
-		snprintf(buffer.data(), buffer.size(), "%d", val);
+		snprintf(buffer.data(), buffer.size(), "%" PRId8, val);
 		f.push(buffer.data());
 	}
 };
@@ -130,7 +130,7 @@ struct Formatter<int16_t>
 	static void format(IFormatStream& f, int16_t val)
 	{
 		std::array<char, 64> buffer = {};
-		snprintf(buffer.data(), buffer.size(), "%d", val);
+		snprintf(buffer.data(), buffer.size(), "%" PRId16, val);
 		f.push(buffer.data());
 	}
 };
@@ -141,7 +141,7 @@ struct Formatter<int32_t>
 	static void format(IFormatStream& f, int32_t val)
 	{
 		std::array<char, 64> buffer = {};
-		snprintf(buffer.data(), buffer.size(), "%d", val);
+		snprintf(buffer.data(), buffer.size(), "%" PRId32, val);
 		f.push(buffer.data());
 	}
 };
@@ -152,7 +152,7 @@ struct Formatter<int64_t>
 	static void format(IFormatStream& f, int64_t val)
 	{
 		std::array<char, 64> buffer = {};
-		snprintf(buffer.data(), buffer.size(), "%lld", val);
+		snprintf(buffer.data(), buffer.size(), "%" PRIi64, val);
 		f.push(buffer.data());
 	}
 };
@@ -163,7 +163,7 @@ struct Formatter<uint8_t>
 	static void format(IFormatStream& f, uint8_t val)
 	{
 		std::array<char, 64> buffer = {};
-		snprintf(buffer.data(), buffer.size(), "%u", val);
+		snprintf(buffer.data(), buffer.size(), "%" PRIu8 , val);
 		f.push(buffer.data());
 	}
 };
@@ -174,7 +174,7 @@ struct Formatter<uint16_t>
 	static void format(IFormatStream& f, uint16_t val)
 	{
 		std::array<char, 64> buffer = {};
-		snprintf(buffer.data(), buffer.size(), "%u", val);
+		snprintf(buffer.data(), buffer.size(), "%" PRIu16, val);
 		f.push(buffer.data());
 	}
 };
@@ -185,7 +185,7 @@ struct Formatter<uint32_t>
 	static void format(IFormatStream& f, uint32_t val)
 	{
 		std::array<char, 64> buffer = {};
-		snprintf(buffer.data(), buffer.size(), "%u", val);
+		snprintf(buffer.data(), buffer.size(), "%" PRIu32, val);
 		f.push(buffer.data());
 	}
 };
@@ -196,7 +196,7 @@ struct Formatter<uint64_t>
 	static void format(IFormatStream& f, uint64_t val)
 	{
 		std::array<char, 64> buffer = {};
-		snprintf(buffer.data(), buffer.size(), "%llu", val);
+		snprintf(buffer.data(), buffer.size(), "%" PRIu64, val);
 		f.push(buffer.data());
 	}
 };
