@@ -9,6 +9,7 @@ target_sources(
     PRIVATE
         pch.h
         wmcv_log_system.cpp
+		wmcv_format.cpp
         wmcv_sink_outputdbgstring.cpp
 )
 

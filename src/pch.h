@@ -6,8 +6,8 @@
 #include <vector>
 #include <cassert>
 #include <cstdarg>
+#include <cinttypes>
 #include <array>
-#include <format>
 
 #ifdef _WIN32
 #ifndef WIN32_LEAN_AND_MEAN

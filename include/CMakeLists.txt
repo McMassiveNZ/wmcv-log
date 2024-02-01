@@ -4,6 +4,7 @@ target_sources(
             wmcv_log/wmcv_log.h
             wmcv_log/wmcv_log_sink.h
             wmcv_log/wmcv_log_system.h
+	wmcv_log/wmcv_format.h
             wmcv_log/sinks/wmcv_sink_outputdbgstring.h
 )
 

@@ -5,6 +5,7 @@ set(current_target wmcv-log-test)
 add_executable(
   ${current_target}
   test_wmcv_log.cpp
+  test_wmcv_format.cpp
   test_pch.h
 )
 

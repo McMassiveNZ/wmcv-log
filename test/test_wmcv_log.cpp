@@ -47,12 +47,12 @@ public:
 
 TEST_F(LogFixture, test_sink)
 {
-	const std::string expected = "Custom Log Message 1234";
+	const std::string expected = "Custom Log Message 1234 5678.000000";
 	std::string result;
 	int counter = 0;
 
 	wmcv::GetLogSystem().PushSink(TestSink{result, counter});
-	wmcv::LogMessage("Custom Log Message {}", 1234);
+	wmcv::LogMessage("Custom Log Message {} {}", 1234, 5678.f);
 	EXPECT_EQ(expected, result);
 	EXPECT_EQ(counter, 1);
 }
