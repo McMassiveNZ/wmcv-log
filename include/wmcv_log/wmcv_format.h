@@ -47,8 +47,10 @@ class InplaceFormatString : public IFormatStream
 public:
 	IFormatStream& push(std::string_view str)
 	{
-		constexpr size_t count = std::min(str.length(), N - m_offset);
+		const size_t count = std::min(str.length(), N - m_offset);
 		std::copy_n(str.begin(), count, m_buffer.begin() + m_offset);
+		m_offset += count;
+		return *this;
 	}
 
 	[[nodiscard]] auto begin() -> std::string::iterator { return m_buffer.begin(); }
@@ -56,7 +58,7 @@ public:
 	[[nodiscard]] auto cbegin() const -> std::string::const_iterator { return m_buffer.cbegin(); }
 	[[nodiscard]] auto cend() const -> std::string::const_iterator { return m_buffer.cend(); }
 
-	[[nodiscard]] auto c_str() const -> const char* { return m_buffer.c_str(); }
+	[[nodiscard]] auto c_str() const -> const char* { return m_buffer.data(); }
 	[[nodiscard]] auto view() const -> std::string_view { return std::string_view{m_buffer, N}; }
 
 private:
