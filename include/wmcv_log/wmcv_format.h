@@ -209,7 +209,7 @@ struct Formatter<float>
 	static void format(IFormatStream& f, float val)
 	{
 		std::array<char, 64> buffer = {};
-		snprintf(buffer.data(), buffer.size(), "%f", val);
+		snprintf(buffer.data(), buffer.size(), "%f", static_cast<double>(val));
 		f.push(buffer.data());
 	}
 };
