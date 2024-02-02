@@ -127,6 +127,28 @@ struct Formatter<char>
 };
 
 template <>
+struct Formatter<long>
+{
+    static void format(IFormatStream& f, long val)
+    {
+        std::array<char, 64> buffer = {};
+        snprintf(buffer.data(), buffer.size(), "%li", val);
+        f.push(buffer.data());
+    }
+};
+
+template <>
+struct Formatter<unsigned long>
+{
+    static void format(IFormatStream& f, unsigned long val)
+    {
+        std::array<char, 64> buffer = {};
+        snprintf(buffer.data(), buffer.size(), "%lu", val);
+        f.push(buffer.data());
+    }
+};
+
+template <>
 struct Formatter<int16_t>
 {
 	static void format(IFormatStream& f, int16_t val)
@@ -266,7 +288,7 @@ struct Formatter<T*>
 		else
 		{
 			std::array<char, 64> buffer = {};
-			snprintf(buffer.data(), buffer.size(), "%#" PRIxPTR, reinterpret_cast<uint64_t>(ptr));
+			snprintf(buffer.data(), buffer.size(), "%#" PRIxPTR, reinterpret_cast<uintptr_t>(ptr));
 			f.push(buffer.data());
 		}
 	}
