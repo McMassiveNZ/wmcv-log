@@ -116,7 +116,7 @@ TEST(Format, test_format_string_int32)
 TEST(Format, test_format_string_int64)
 {
 	wmcv::FormatString str;
-	wmcv::format(str, "{}, {}, {}", 0x7FFFFFFFFFFFFFFF, 0x7FFFFFFFFFFFFFFE, -9223372036854775806ll);
+	wmcv::format(str, "{}, {}, {}", 0x7FFFFFFFFFFFFFFF, 0x7FFFFFFFFFFFFFFE, -9223372036854775806);
 	
 	EXPECT_STREQ(str.c_str(), "9223372036854775807, 9223372036854775806, -9223372036854775806");
 }
@@ -285,7 +285,7 @@ TEST(Format, test_inplace_format_string_int32)
 TEST(Format, test_inplace_format_string_int64)
 {
 	wmcv::InplaceFormatString<512> str;
-	wmcv::format(str, "{}, {}, {}", 0x7FFFFFFFFFFFFFFF, 0x7FFFFFFFFFFFFFFE, int64_t{-9223372036854775806});
+	wmcv::format(str, "{}, {}, {}", 0x7FFFFFFFFFFFFFFF, 0x7FFFFFFFFFFFFFFE, -9223372036854775806);
 	
 	EXPECT_STREQ(str.c_str(), "9223372036854775807, 9223372036854775806, -9223372036854775806");
 }
